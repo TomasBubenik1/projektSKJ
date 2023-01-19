@@ -1,0 +1,30 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "firstname": "Lukas",
+      "lastname": "Tosko",
+      "class": "3.B",
+      "age": "17",
+      "birthdate": "26.6.2005",
+      "section": "Programming",
+      "gender": "Male",
+      "weight": "70",
+      "disabled": "No",
+      "achievements": "None"
+    },
+    {
+      "id": 2,
+      "firstname": "David",
+      "lastname": "Ickle",
+      "class": "3.B",
+      "age": "18",
+      "birthdate": "14.2.2004",
+      "section": "Graphic Design",
+      "gender": "Male",
+      "weight": "150kg",
+      "disabled": true,
+      "achievements": ""
+    }
+  ]
+}
