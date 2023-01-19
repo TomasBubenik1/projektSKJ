@@ -1,0 +1,126 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1 style="color: white;">Admin dashboard</h1>
+        <div class="d-flex">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Add Student</button><button class="btn btn-danger mx-3" (click)="logOut()">Log out</button>
+        </div>
+    </div>
+
+</nav>
+
+<table class="table">
+<thead>
+<tr>
+    <th scope="col">Students ID</th>
+    <th scope="col">First Name</th>
+    <th scope="col">Last Name</th>
+    <th scope="col">Class</th>
+    <th scope="col">Age</th>
+    <th scope="col">Birth Date</th>
+    <th scope="col">Section</th>
+    <th scope="col">Gender</th>
+    <th scope="col">Weight</th>
+    <th scope="col">Disabled</th>
+    <th scope="col">Achievements</th>
+    <th scope="col">Action</th>
+</tr>
+</thead>
+<tbody>
+  <tr *ngFor="let data of allProperty">
+        <td>{{data.id}}</td>
+        <td>{{data.firstname}}</td>
+        <td>{{data.lastname}}</td>
+        <td>{{data.class}}</td>
+        <td>{{data.age}}</td>
+        <td>{{data.birthdate}}</td>
+        <td>{{data.section}}</td>
+        <td>{{data.gender}}</td>
+        <td>{{data.weight}}</td>
+        <td>{{data.disabled}}</td>
+        <td>{{data.achievements}}</td>
+        <td><button class="btn btn-info">Edit</button><button class="btn btn-danger mx-3" (click)="deleteStudent(data)">Delete</button></td>
+    </tr>
+</tbody>
+</table>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Student Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formValue">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">First Name</label>
+                  <input formControlName="firstname" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Last Name</label>
+                  <input formControlName="lastname" type="text" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <a>Class</a>
+                    <select formControlName="class" class="form-select" aria-label="Default select example">
+                        <option selected></option>
+                        <option value="1.A">1.A</option>
+                        <option value="1.B">1.B</option>
+                        <option value="2.A">2.A</option>
+                        <option value="2.B">2.B</option>
+                        <option value="3.A">3.A</option>
+                        <option value="3.B">3.B</option>
+                        <option value="4.A">4.A</option>
+                        <option value="4.B">4.B</option>
+                      </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Age</label>
+                    <input formControlName="age" type="text" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Birthdate</label>
+                    <input formControlName="birthdate" type="text" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <div class="mb-3">
+                    <a>Section</a>
+                    <select formControlName="section" class="form-select" aria-label="Default select example">
+                        <option selected></option>
+                        <option value="Programming">Programming</option>
+                        <option value="Graphic Design">Graphic Design</option>
+                        <option value="Network administrator">Network administrator</option>
+                      </select>
+                  </div>
+                  <div class="mb-3">
+                    <a>Gender</a>
+                    <select formControlName="gender" class="form-select" aria-label="Default select example">
+                        <option selected></option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                      </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Weight</label>
+                    <input formControlName="weight" type="text" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Achievements</label>
+                    <input formControlName="achievements" type="text" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <div class="form-check">
+                    <input formControlName="disabled" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Disabled
+                    </label>
+                  </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="clear" class="btn btn-secondary" data-bs-dismiss="modal" (click)="close()">Close</button>
+          <button type="button" class="btn btn-primary" (click)="addStudent()">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
